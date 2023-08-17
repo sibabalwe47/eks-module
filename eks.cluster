@@ -1,3 +1,15 @@
 aws eks --region example_region update-kubeconfig --name cluster_name
 
 aws eks --region us-west-2 update-kubeconfig --name plusonex
+
+kubectl exec --stdin --tty pod/auth-service-596dc5f7f7-cszq5 -- bash
+
+kubectl port-forward pod/auth-service-596dc5f7f7-cszq5 4000:4000
+
+kubectl create namespace argocd
+
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
+kubectl port-forward svc/argocd-server -n argocd 8080:443

@@ -10,3 +10,11 @@ variable "configmap_roles" {
 variable "configmap_users" {
   type = list(object({}))
 }
+
+variable "namespaces" {
+  type = list(string)
+}
+
+variable "vpc_id" {
+  type = string
+}
