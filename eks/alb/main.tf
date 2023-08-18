@@ -79,12 +79,12 @@ resource "kubernetes_ingress_v1" "this" {
   spec {
     ingress_class_name = "my-aws-ingress-class"
     default_backend {
-      service {
-        name = kubernetes_service_v1.myapp3_np_service.metadata[0].name
-        port {
-          number = 80
-        }
-      }
+      # service {
+      #   name = kubernetes_service_v1.myapp3_np_service.metadata[0].name
+      #   port {
+      #     number = 80
+      #   }
+      # }
     }
   }
 }
