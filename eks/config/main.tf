@@ -12,10 +12,17 @@ resource "kubernetes_config_map_v1" "aws_auth" {
 
       }
     ])
-    mapUsers = yamlencode([{
-      userarn  = "arn:aws:iam::386613981817:user/Sibabalwe"
-      username = "Sibabalwe"
-      groups   = ["system:masters"]
-    }])
+    mapUsers = yamlencode([
+      {
+        userarn  = "arn:aws:iam::386613981817:user/Sibabalwe"
+        username = "Sibabalwe"
+        groups   = ["system:masters"]
+      },
+      {
+        userarn  = "arn:aws:iam::386613981817:user/eks.plusonex"
+        username = "Sibabalwe"
+        groups   = ["system:masters"]
+      }
+    ])
   }
 }
