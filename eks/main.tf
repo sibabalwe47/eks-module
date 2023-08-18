@@ -31,14 +31,14 @@ module "nodegroup" {
 }
 
 module "namespaces" {
-  source = "./namespaces"
+  source     = "./namespaces"
   namespaces = var.namespaces
 }
 
 module "alb" {
-  source = "./alb"
-  service_account = "aws-load-balancer-controller"
+  source            = "./alb"
+  service_account   = "aws-load-balancer-controller"
   oidc_provider_arn = module.oidc_provider.aws_iam_openid_connect_provider_arn
-  vpc_id = var.vpc_id
-  eks_name = "plusonex"
+  vpc_id            = var.vpc_id
+  eks_name          = "plusonex"
 }
